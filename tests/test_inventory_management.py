@@ -4,6 +4,7 @@ from fastapi.testclient import TestClient
 from inventory_management.app.main import app
 from inventory_management.app.db import SessionLocal, engine
 from inventory_management.app.models import Base, Item
+from inventory_management.app.main import app
 
 @pytest.fixture(scope="module")
 def client():
