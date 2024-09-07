@@ -1,16 +1,18 @@
-version: '3.8'
-
 services:
   book_catalog:
-    build: ./book_catalog
-    ports:
-      - "8001:8000"
+    build:
+      context: ./book_catalog
+    container_name: book_catalog
     environment:
-      - DATABASE_URL=${DATABASE_URL}
-
+      DATABASE_URL: "postgresql://db_postgresql_k4h6_user:yvSo36ZlE57JYk9NhFbG2kwzpfqj9F1S@dpg-crc0frbv2p9s73dl0akg-a.oregon-postgres.render.com/db_postgresql_k4h6"
+    ports:
+      - "8000:8000"
+  
   inventory_management:
-    build: ./inventory_management
-    ports:
-      - "8002:8000"
+    build:
+      context: ./inventory_management
+    container_name: inventory_management
     environment:
-      - DATABASE_URL=${DATABASE_URL}
+      DATABASE_URL: "postgresql://db_postgresql_k4h6_user:yvSo36ZlE57JYk9NhFbG2kwzpfqj9F1S@dpg-crc0frbv2p9s73dl0akg-a.oregon-postgres.render.com/db_postgresql_k4h6"
+    ports:
+      - "8001:8001"
